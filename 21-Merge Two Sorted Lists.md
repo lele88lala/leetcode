@@ -34,3 +34,35 @@ var mergeTwoLists = function(l1, l2) {
     return first;
 };
 ```
+
+```
+function ListNode(val) {
+    this.val = val;
+    this.next = null;
+  }
+  var mergeTwoLists = function (l1, l2) {
+    if (!l1) return l2;
+    if (!l2) return l1;
+    var t, first;
+    if (l1.val <= l2.val) {
+      first = l1;
+      t = l2;
+    } else {
+      first = l2;
+      t = l1;
+    }
+    first.next = mergeTwoLists(first.next, t);
+    return first;
+  };
+  var one = new ListNode(1);
+  var two = new ListNode(2);
+  var four = new ListNode(4);
+  var five = new ListNode(3)
+  var six = new ListNode(6);
+  one.next = two
+  two.next = four
+  five.next = six
+  console.log('这里', one)
+  console.log(mergeTwoLists(one, five))
+  
+ 
